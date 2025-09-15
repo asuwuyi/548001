@@ -10,7 +10,7 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            background-color: #ffffff;
+            background-color: #333;
         }
         .title01{
             font-size: 24px;
@@ -20,7 +20,7 @@
             line-height: 0.3; 
             display: block; 
             width: 100%; 
-            background-color: #fff;
+            background-color: #333;
         }
         .container {
             display: flex;
@@ -45,6 +45,14 @@
             height: auto;
         }
 
+table.more-books,
+table.more-books td,
+table.more-books th,
+.txt-book,
+.txt-price3,
+table.more-books img {
+  background-color: white;
+}
         table {
             width: 100%;
             border-collapse: collapse;
@@ -108,7 +116,8 @@
         text-align: center;
         }
         .paper {
-            background-image: url(./images/548001_24.jpg);
+          background-color: #ffffff;
+            /* background-image: url(./images/548001_24.jpg); */
             max-width: 980px;
             height: auto;
         }
@@ -140,6 +149,7 @@
         } */
 
 /*書本價格1*/
+
 .txt-price {
   color:#666;
   font-size:16px;
@@ -201,6 +211,7 @@
   border-collapse:separate; 
   border-spacing:0 45px;  
 }
+
 .more-books td {
   width:182px; 
   vertical-align:top;
@@ -422,6 +433,31 @@ body,td,th { font-family:"微軟正黑體","Microsoft JhengHei","新細明體",P
   </tr>
 
             <img src="./images/548001_16.jpg" alt="">
+<tr>
+  <td>
+    <table align="center" class="more-books">
+      <tbody>
+        <tr>
+          <td>
+            <p class="txt-price3">
+              <a href="https://www.crown.com.tw/view.aspx?bc=548008" target="_blank">kobo</a>
+            </p>
+          </td>
+          <td>
+            <p class="txt-price3">
+              <a href="https://www.crown.com.tw/view.aspx?bc=548007" target="_blank">博客來</a>
+            </p>
+          </td>
+          <td>
+            <p class="txt-price3">
+              <a href="https://www.crown.com.tw/view.aspx?bc=548006" target="_blank">讀墨三家</a>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+</tr>
 
         </div>
     </div>
