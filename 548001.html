@@ -45,52 +45,57 @@ td { padding:0; margin:0; border:0; }
 }
 pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; background-color:#fff; }
 
-/* 更多書籍 */
+/* 延伸閱讀 */
 .more-books-wrapper {
-  background:#fff;
   width:100%;
   padding:20px 0;
-  text-align:center;
-  overflow:hidden;
-
-  display: flex;           /* 使用 Flex */
-  justify-content: center; /* 水平置中 */
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px; /* 行間距 */
 }
 
-.more-books {
-  font-size:16px;
-  border:0;
-  border-collapse:separate;
-  border-spacing:80px 25px; /* 欄位間距 */
-  width: auto;               /* 依內容自適應寬度 */
-}
-@media (max-width: 890px) {
-  .more-books {
-    border-spacing:20px 25px; /* 調整間距 */
-  }
-}
-.more-books td {
-  width:22%;                 /* 欄位固定比例 */
-  vertical-align:top;
+.more-books-row {
+  max-width:890px;
+  width:100%;
+  display:flex;
+  justify-content:space-between; /* 平均分配 */
+  flex-wrap:nowrap;
 }
 
+.book-card {
+  flex:1 1 0;
+  max-width:22%; /* 四本書時的比例 */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
+.book-card img {
+  width:100%;
+}
 
+/* 圖片比例 */
 .pic-cover {
-  display: block;                /* 改成 block */
-  width: 100%;
-  aspect-ratio: 150/208;
-  border: 1px solid #d2d2d2;
-  background: #fff;
-  margin-bottom: 5px;
-  overflow: hidden;              /* 防止圖片溢出 */
+  width:100%;
+  position:relative;
+  border:1px solid #d2d2d2;
+  background:#fff;
+  margin-bottom:5px;
+  overflow:hidden;
 }
-
+.pic-cover::before {
+  content:"";
+  display:block;
+  padding-top:138.66%;  /* 高寬比例 */
+}
 .pic-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;             /* cover 可避免 Safari 長條框線 */
-  display: block;
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 .txt-book {
@@ -98,52 +103,50 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
   line-height:1.3;
   text-align:center;
   margin-bottom:5px;
-  min-height: 2.6em; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height:2.6em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .txt-price3 a {
   display:inline-block;
   width:100%;
-  font-size: clamp(12px, 1.8vw, 18px); 
+  font-size: clamp(12px,1.8vw,18px);
   font-weight:bold;
-  padding:10px 0;
+  padding:12px 0;
   color:#fff;
   background:#666;
   border-radius:10px;
   text-align:center;
   text-decoration:none;
+  white-space:nowrap;      /* 不換行 */
   transition:0.3s;
 }
 .txt-price3 a:hover { background:#ff6600; color:#fff; }
+
+/* Store 按鈕 */
 .store-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;           /* 按鈕間距 */
-  flex-wrap: nowrap;   /* 不換行 */
-  margin: 30px 0;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:nowrap;
+  margin:30px 0;
 }
-
 .store-buttons a {
-  white-space: nowrap;          /* 文字不換行 */
-  flex: 0 1 auto;               /* 自動寬度，但不縮到零 */
-  padding: 9px 20px;
-  background-color: #666;
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: clamp(14px, 1.5vw, 18px);
-  font-weight: bold;
-  text-align: center;
-  transition: 0.3s;
+  white-space:nowrap;
+  flex:0 1 auto;
+  padding:12px 25px;
+  background-color:#666;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:clamp(14px,1.5vw,18px);
+  font-weight:bold;
+  text-align:center;
+  transition:0.3s;
 }
-
-.store-buttons a:hover {
-  background-color: #ff6600;
-  color: #fff;
-}
+.store-buttons a:hover { background-color:#ff6600; color:#fff; }
 
 </style>
 </head>
@@ -179,61 +182,57 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
 
       <!-- 延伸閱讀 -->
       <div class="more-books-wrapper">
-        <div class="more-books-scale">
-          <table class="more-books">
-            <tbody>
-              <tr>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548008.jpg"></a>
-                  <p class="txt-book">化城</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548007.jpg"></a>
-                  <p class="txt-book">希望你也在這裡</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548006.jpg"></a>
-                  <p class="txt-book">自由遊戲</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548005.jpg"></a>
-                  <p class="txt-book">外面的世界</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548004.jpg"></a>
-                  <p class="txt-book">愛寫</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548003.jpg"></a>
-                  <p class="txt-book">真的</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-                <td>
-                  <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548002.jpg"></a>
-                  <p class="txt-book">遇見</p>
-                  <p class="txt-price3"><a href="#">放入購物車</a></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- 第一行 四本書 -->
+        <div class="more-books-row">
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548008.jpg"></a>
+            <p class="txt-book">化城</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548007.jpg"></a>
+            <p class="txt-book">希望你也在這裡</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548006.jpg"></a>
+            <p class="txt-book">自由遊戲</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548005.jpg"></a>
+            <p class="txt-book">外面的世界</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+        </div>
+        <!-- 第二行 三本書 -->
+        <div class="more-books-row">
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548004.jpg"></a>
+            <p class="txt-book">愛寫</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548003.jpg"></a>
+            <p class="txt-book">真的</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
+          <div class="book-card">
+            <a href="#" class="pic-cover"><img src="https://www.crown.com.tw/images/large/548002.jpg"></a>
+            <p class="txt-book">遇見</p>
+            <p class="txt-price3"><a href="#">放入購物車</a></p>
+          </div>
         </div>
       </div>
 
       <img src="./images/548001_16.jpg" alt="">
 
-  <div class="store-buttons">
-  <a href="https://www.crown.com.tw/view.aspx?bc=548008" target="_blank">kobo</a>
-  <a href="https://www.crown.com.tw/view.aspx?bc=548007" target="_blank">博客來</a>
-  <a href="https://www.crown.com.tw/view.aspx?bc=548006" target="_blank">讀墨三家</a>
-</div>
-
+      <!-- Store 按鈕 -->
+      <div class="store-buttons">
+        <a href="https://www.crown.com.tw/view.aspx?bc=548008" target="_blank">kobo</a>
+        <a href="https://www.crown.com.tw/view.aspx?bc=548007" target="_blank">博客來</a>
+        <a href="https://www.crown.com.tw/view.aspx?bc=548006" target="_blank">讀墨三家</a>
+      </div>
 
     </div>
   </div>
@@ -252,18 +251,12 @@ fetch(filePath)
   })
   .catch(err => console.error(err));
 
-  window.addEventListener('DOMContentLoaded', () => {
+// Store 按鈕寬度統一
+window.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.store-buttons a');
   let maxWidth = 0;
-
-  buttons.forEach(btn => {
-    const btnWidth = btn.scrollWidth;
-    if(btnWidth > maxWidth) maxWidth = btnWidth;
-  });
-
-  buttons.forEach(btn => {
-    btn.style.width = maxWidth + 'px';
-  });
+  buttons.forEach(btn => { if(btn.scrollWidth>maxWidth) maxWidth=btn.scrollWidth; });
+  buttons.forEach(btn => { btn.style.width = maxWidth+'px'; });
 });
 </script>
 </body>
