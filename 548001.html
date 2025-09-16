@@ -61,12 +61,12 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
   width:100%;
   display:flex;
   justify-content:space-between; /* 平均分配 */
-  flex-wrap:nowrap;
+  flex-wrap:nowrap; /* 桌面版不換行 */
 }
 
 .book-card {
   flex:1 1 0;
-  max-width:22%; /* 四本書時的比例 */
+  max-width:22%; /* 桌面版四本書比例 */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -108,28 +108,33 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
   align-items:center;
   justify-content:center;
 }
+.txt-price3 {
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  gap: 10px;               /* 按鈕間隔 */
+  flex-wrap: wrap;         /* 手機版自動換行 */
+  margin: 0 auto;          /* 置中整個區塊 */
+}
 .txt-price3 a {
-  display: inline-block;        /* 保持 inline-block，不拉伸 */
-  min-width: 120px;             /* 最小寬度 */
-  padding: 12px 25px;           /* 高度固定 */
-  font-size: 16px;               /* 固定字體大小 */
+  display: inline-block;
+  min-width: 120px;
+  padding: 12px 25px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   background-color: #666;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
-  white-space: nowrap;           /* 禁止換行 */
-  box-sizing: border-box;        /* 包含 padding */
-  line-height: normal;           /* 防止 Safari 拉伸 */
-  vertical-align: middle;        /* 避免底部空隙 */
+  white-space: nowrap;
+  box-sizing: border-box;
+  line-height: normal;
+  vertical-align: middle;
   transition: 0.3s;
 }
-
 .txt-price3 a:hover {
   background-color: #ff6600;
 }
-
 
 /* Store 按鈕 */
 .store-buttons {
@@ -154,6 +159,19 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
 }
 .store-buttons a:hover { background-color:#ff6600; color:#fff; }
 
+/* 手機版: 三本書一行 */
+@media (max-width: 768px) {
+  .more-books-row {
+    flex-wrap: wrap; /* 換行 */
+    justify-content: flex-start; /* 左對齊 */
+    gap: 10px;
+  }
+  .book-card {
+    flex: 1 1 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+    margin-bottom: 15px; /* 行間距 */
+  }
+}
 </style>
 </head>
 <body>
