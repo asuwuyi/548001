@@ -77,16 +77,21 @@ pre { margin:0; padding:0; white-space:pre-wrap; word-break:break-word; backgrou
 
 
 .pic-cover {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  aspect-ratio:150/208;
-  border:1px solid #d2d2d2;
-  background:#fff;
-  margin-bottom:5px;
+  display: block;                /* 改成 block */
+  width: 100%;
+  aspect-ratio: 150/208;
+  border: 1px solid #d2d2d2;
+  background: #fff;
+  margin-bottom: 5px;
+  overflow: hidden;              /* 防止圖片溢出 */
 }
-.pic-cover img { width:100%; height:100%; object-fit:contain; padding:4px; }
+
+.pic-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* cover 可避免 Safari 長條框線 */
+  display: block;
+}
 
 .txt-book {
   font-weight:bold;
